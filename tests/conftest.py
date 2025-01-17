@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import MainPageLocators, UserAccountPageLocators
-from helpers import login
+from helpers import login, MAIN_PAGE_URL
 
 
 @pytest.fixture()
@@ -17,7 +17,7 @@ def chrome_driver():
 @pytest.fixture()
 def chrome_driver_logged():
     chrome_driver_logged = webdriver.Chrome()
-    chrome_driver_logged.get("https://stellarburgers.nomoreparties.site/")
+    chrome_driver_logged.get(MAIN_PAGE_URL)
     WebDriverWait(chrome_driver_logged, 3).until(
         expected_conditions.visibility_of_element_located(
             (By.XPATH, MainPageLocators.USER_ACCOUNT_BUTTON)))

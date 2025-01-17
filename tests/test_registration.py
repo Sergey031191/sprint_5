@@ -2,12 +2,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import RegistrationPageLocators, LoginPageLocators
-from helpers import user_login, user_password, user_email
+from helpers import user_login, user_password, user_email, REGISTER_PAGE_URL, LOGIN_PAGE_URL
 
 
 class TestRegistration:
     def test_registration_correct_inputs_true(self, chrome_driver):
-        chrome_driver.get("https://stellarburgers.nomoreparties.site/register")
+        chrome_driver.get(REGISTER_PAGE_URL)
 
         WebDriverWait(chrome_driver, 5).until(
             expected_conditions.text_to_be_present_in_element((
@@ -23,10 +23,10 @@ class TestRegistration:
             expected_conditions.text_to_be_present_in_element((
                 By.XPATH, LoginPageLocators.LOGIN_BUTTON), "Войти"))
 
-        assert chrome_driver.current_url == "https://stellarburgers.nomoreparties.site/login"
+        assert chrome_driver.current_url == LOGIN_PAGE_URL
 
     def test_registration_wrong_password_input_true(self, chrome_driver):
-        chrome_driver.get("https://stellarburgers.nomoreparties.site/register")
+        chrome_driver.get(REGISTER_PAGE_URL)
 
         WebDriverWait(chrome_driver, 5).until(
             expected_conditions.text_to_be_present_in_element((
