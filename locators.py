@@ -1,49 +1,55 @@
 class RegistrationPageLocators:
     # Строка ввода имени
-    name = "//*[@id='root']/div/main/div/form/fieldset[1]/div/div/input"
+    NAME_INPUT = "(.//input[@name='name'])[1]"
     # Строка ввода почты
-    email = "//*[@id='root']/div/main/div/form/fieldset[2]/div/div/input"
+    EMAIL_INPUT = "(.//input[@name='name'])[2]"
     # Строка ввода пароля
-    password = "//*[@id='root']/div/main/div/form/fieldset[3]/div/div/input"
+    PASSWORD_INPUT = ".//input[@name='Пароль']"
     # Кнопка зарегистрироваться
-    register = "//*[@id='root']/div/main/div/form/button"
+    REGISTER_BUTTON = ".//button[text()='Зарегистрироваться']"
     # Текст попапа о неверном пароле CSS
-    wrong_password = ".input__error.text_type_main-default"
+    WRONG_PASSWORD_POPUP = ".input__error.text_type_main-default"
     # Кнопка входа (class)
-    login_button = "Auth_link__1fOlj"
+    LOGIN_BUTTON = "Auth_link__1fOlj"
 
 
 class LoginPageLocators:
     # кнопка войти
-    login = ".//button[text()='Войти']"
+    LOGIN_BUTTON = ".//button[text()='Войти']"
     # поле имя
-    name_field = "name"
+    NAME_FIELD = "name"
     # поле пароль
-    password_field = "Пароль"
+    PASSWORD_FIELD = "Пароль"
 
 
 class MainPageLocators:
     # Кнопка войти в аккаунт
-    enter_account = ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_large__G21Vg"
+    ENTER_ACCOUNT_BUTTON = ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_large__G21Vg"
     # Кнопка личный кабинет
-    user_account = ".//p[text()='Личный Кабинет']"
+    USER_ACCOUNT_BUTTON = ".//p[text()='Личный Кабинет']"
     # Кнопка булочки
-    pans_button = ".//span[text()='Булки']"
+    PANS_BUTTON = ".//span[text()='Булки']"
     # Кнопка соусы
-    sauces_button = ".//span[text()='Соусы']"
+    SAUCES_BUTTON = ".//span[text()='Соусы']"
     # Кнопка начинки
-    insides_button = ".//span[text()='Начинки']"
+    INSIDES_BUTTON = ".//span[text()='Начинки']"
+    # Раздел булки
+    SECTION_PANS = ".//div[span[text()='Булки']]"
+    # Раздел соусы
+    SECTION_SAUCE = ".//div[span[text()='Соусы']]"
+    # Раздел начинки
+    SECTION_INSIDES = ".//div[span[text()='Начинки']]"
 
 
 class PasswordRestorePageLocators:
     # кнопка войти
-    login = ".//a[text()='Войти']"
+    LOGIN_BUTTON = ".//a[text()='Войти']"
 
 
 class UserAccountPageLocators:
     # Кнопка сохранить
-    save_button = ".//button[text()='Сохранить']"
+    SAVE_BUTTON = ".//button[text()='Сохранить']"
     # Кнопка конструктор
-    constructor = ".//p[text()='Конструктор']"
+    CONSTRUCTOR = ".//p[text()='Конструктор']"
     # Кнопка выход
-    exit_button = ".//button[text()='Выход']"
+    EXIT_BUTTON = ".//button[text()='Выход']"

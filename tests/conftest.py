@@ -20,17 +20,17 @@ def chrome_driver_logged():
     chrome_driver_logged.get("https://stellarburgers.nomoreparties.site/")
     WebDriverWait(chrome_driver_logged, 3).until(
         expected_conditions.visibility_of_element_located(
-            (By.XPATH, MainPageLocators.user_account)))
+            (By.XPATH, MainPageLocators.USER_ACCOUNT_BUTTON)))
 
-    chrome_driver_logged.find_element(By.XPATH, MainPageLocators.user_account).click()
+    chrome_driver_logged.find_element(By.XPATH, MainPageLocators.USER_ACCOUNT_BUTTON).click()
 
     login(chrome_driver_logged)
 
-    chrome_driver_logged.find_element(By.XPATH, MainPageLocators.user_account).click()
+    chrome_driver_logged.find_element(By.XPATH, MainPageLocators.USER_ACCOUNT_BUTTON).click()
 
     WebDriverWait(chrome_driver_logged, 5).until(
         expected_conditions.visibility_of_element_located((
-            By.XPATH, UserAccountPageLocators.save_button)))
+            By.XPATH, UserAccountPageLocators.SAVE_BUTTON)))
 
     yield chrome_driver_logged
 

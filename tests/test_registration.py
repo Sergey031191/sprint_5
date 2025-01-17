@@ -10,17 +10,17 @@ def test_registration_correct_inputs_true(chrome_driver):
 
     WebDriverWait(chrome_driver, 5).until(
         expected_conditions.text_to_be_present_in_element((
-            By.XPATH, RegistrationPageLocators.register), "Зарегистрироваться"))
+            By.XPATH, RegistrationPageLocators.REGISTER_BUTTON), "Зарегистрироваться"))
 
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.name).send_keys(user_login)
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.email).send_keys(user_email)
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.password).send_keys(user_password)
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.NAME_INPUT).send_keys(user_login)
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.EMAIL_INPUT).send_keys(user_email)
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.PASSWORD_INPUT).send_keys(user_password)
 
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.register).click()
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.REGISTER_BUTTON).click()
 
     WebDriverWait(chrome_driver, 5).until(
         expected_conditions.text_to_be_present_in_element((
-            By.XPATH, LoginPageLocators.login), "Войти"))
+            By.XPATH, LoginPageLocators.LOGIN_BUTTON), "Войти"))
 
     assert chrome_driver.current_url == "https://stellarburgers.nomoreparties.site/login"
 
@@ -30,15 +30,15 @@ def test_registration_wrong_password_input_true(chrome_driver):
 
     WebDriverWait(chrome_driver, 5).until(
         expected_conditions.text_to_be_present_in_element((
-            By.XPATH, RegistrationPageLocators.register), "Зарегистрироваться"))
+            By.XPATH, RegistrationPageLocators.REGISTER_BUTTON), "Зарегистрироваться"))
 
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.name).send_keys("some_kitty_cat_6")
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.email).send_keys("some_kitty_cat_66@maim.com")
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.password).send_keys("Sar")
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.NAME_INPUT).send_keys("some_kitty_cat_6")
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.EMAIL_INPUT).send_keys("some_kitty_cat_66@maim.com")
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.PASSWORD_INPUT).send_keys("Sar")
 
-    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.register).click()
+    chrome_driver.find_element(By.XPATH, RegistrationPageLocators.REGISTER_BUTTON).click()
 
-    popup_text = chrome_driver.find_element(By.CSS_SELECTOR, RegistrationPageLocators.wrong_password).text
+    popup_text = chrome_driver.find_element(By.CSS_SELECTOR, RegistrationPageLocators.WRONG_PASSWORD_POPUP).text
 
     assert popup_text == "Некорректный пароль"
 
